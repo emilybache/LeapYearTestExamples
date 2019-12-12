@@ -1,11 +1,23 @@
 Feature: Leap years
 
   Scenario: Common Year
-    When I have a common year
+    When I have the year 1993
     Then it is not a leap year
 
+  Scenario: Leap Year
+    When I have the year 1992
+    Then it is a leap year
+
+  Scenario: Atypical Common Year
+    When I have the year 1900
+    Then it is not a leap year
+
+  Scenario: Atypical Leap Year
+    When I have the year 2000
+    Then it is a leap year
+
   Scenario Outline:
-    Given I have year <year>
+    Given I have the year <year>
     When I calculate whether it is a leap year
     Then it should be <result>
 

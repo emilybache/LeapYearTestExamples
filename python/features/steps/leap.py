@@ -22,19 +22,19 @@ sys.path.insert(0, os.getcwd())
 from leap import is_leap
 
 
-@when("I have a common year")
-def step_impl(context):
-    assert is_leap(1993) is False
+@when("I have the year {year}")
+def step_impl(context, year):
+    context.year = int(year)
 
 
 @then("it is not a leap year")
 def step_impl(context):
-    assert context.failed is False
+    assert not is_leap(context.year)
 
 
-@given("I have year {year}")
-def step_impl(context, year):
-    context.year = int(year)
+@then("it is a leap year")
+def step_impl(context):
+    assert is_leap(context.year)
 
 
 @when("I calculate whether it is a leap year")
@@ -46,3 +46,7 @@ def step_impl(context):
 def step_impl(context, result):
     assert context.is_leap == result
 
+
+@given("I have the year {year}")
+def step_impl(context, year):
+    context.year = int(year)

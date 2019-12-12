@@ -1,0 +1,6 @@
+(year, is leap year)
+
+0) (1993, False)
+1) (1992, True)
+2) (1900, False)
+3) (2000, True)

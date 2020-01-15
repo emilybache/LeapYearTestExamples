@@ -1,11 +1,11 @@
 package codingdojo;
 
 import org.junit.jupiter.api.Test;
-
-import static codingdojo.LeapYear.isLeap;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class LeapYearTest {
+import static codingdojo.LeapYear.isLeap;
+
+public class LeapYearJunitTest {
     @Test
     void commonYear() {
         assertFalse(isLeap(1993));

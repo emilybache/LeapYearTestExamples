@@ -1,0 +1,3 @@
+/Users/emily/workspace/training_materials/LeapYearTestExamples/cpp/CMakeFiles/rebuild_cache.dir
+/Users/emily/workspace/training_materials/LeapYearTestExamples/cpp/CMakeFiles/edit_cache.dir
+/Users/emily/workspace/training_materials/LeapYearTestExamples/cpp/CMakeFiles/StarterProject.tests.dir

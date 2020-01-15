@@ -1,4 +1,4 @@
-set(CODE_LIB_NAME StarterProject.code)
+set(CODE_LIB_NAME Leap.code)
 set(SOURCE_FILES
         leap.h
         )

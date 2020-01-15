@@ -35,10 +35,10 @@ from leap import is_leap
 class LeapYearDataSpec(Specification):
     def is_leap(self):
         with expect:
-            is_leap(leap) == expected_value
+            is_leap(year) == expected_value
 
         with where:
-            leap | expected_value
+            year | expected_value
             1993 | False
             1992 | True
             1900 | False

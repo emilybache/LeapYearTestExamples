@@ -5,32 +5,6 @@
 
 using namespace ApprovalTests;
 
-TEST_CASE("DemoSimpleTestCase")
-{
-    Approvals::verify("Some\nMulti-line\noutput");
-}
-
-struct Demo
-{
-    int value1;
-    int value2;
-
-    friend std::ostream& operator<<(std::ostream& os, const Demo& obj)
-    {
-        return os
-            << "value1: " << obj.value1
-            << ", value2: " << obj.value2;
-    }
-};
-
-TEST_CASE("DemoCombinationTestCase")
-{
-    std::vector<int> evens{ 2, 4, 6, 8, 10 };
-    std::vector<int> odds{ 1, 3, 5, 7, 9 };
-    CombinationApprovals::verifyAllCombinations(
-            [](int i, int j) { return Demo{ i, j }; },
-            evens, odds);
-}
 
 TEST_CASE("Common Year")
 {
@@ -52,6 +26,7 @@ TEST_CASE("Atypical Leap")
     REQUIRE(isLeap(2000));
 }
 
+// TODO: move this to another test file named leap_approvals.cpp
 TEST_CASE("Leap with List")
 {
     auto result = std::vector<std::string>();
@@ -63,5 +38,33 @@ TEST_CASE("Leap with List")
         result.push_back(buffer.str());
     }
     Approvals::verifyAll("Year -> is leap year", result);
+}
+
+// TODO: rewrite these test cases to use the isLeap function
+TEST_CASE("DemoSimpleTestCase")
+{
+    Approvals::verify("Some\nMulti-line\noutput");
+}
+
+struct Demo
+{
+    int value1;
+    int value2;
+
+    friend std::ostream& operator<<(std::ostream& os, const Demo& obj)
+    {
+        return os
+                << "value1: " << obj.value1
+                << ", value2: " << obj.value2;
+    }
+};
+
+TEST_CASE("DemoCombinationTestCase")
+{
+    std::vector<int> evens{ 2, 4, 6, 8, 10 };
+    std::vector<int> odds{ 1, 3, 5, 7, 9 };
+    CombinationApprovals::verifyAllCombinations(
+            [](int i, int j) { return Demo{ i, j }; },
+            evens, odds);
 }
 

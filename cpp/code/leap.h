@@ -1,7 +1,7 @@
 #ifndef APPROVALTESTS_CPP_STARTERPROJECT_LEAP_H
 #define APPROVALTESTS_CPP_STARTERPROJECT_LEAP_H
 
-bool isLeap(int y){
+static bool isLeap(int y){
     if (y % 400 == 0)
     {
         return true;

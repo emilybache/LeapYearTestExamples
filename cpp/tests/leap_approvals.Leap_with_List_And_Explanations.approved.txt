@@ -1,0 +1,8 @@
+explanation, year -> is leap year
+
+
+typical common year, 1993 -> False
+typical leap year, 1992 -> True
+atypical common year, 1900 -> False
+atypical leap year, 2000 -> True
+

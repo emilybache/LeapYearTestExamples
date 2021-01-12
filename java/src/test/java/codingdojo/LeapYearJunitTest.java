@@ -7,22 +7,22 @@ import static codingdojo.LeapYear.isLeap;
 
 public class LeapYearJunitTest {
     @Test
-    void commonYear() {
+    void typicalCommonYear() {
         assertFalse(isLeap(1993));
     }
 
     @Test
-    void typicalLeap() {
+    void typicalLeapYear() {
         assertTrue(isLeap(1992));
     }
 
     @Test
-    void atypicalCommon() {
+    void atypicalCommonYear() {
         assertFalse(isLeap(1900));
     }
 
     @Test
-    void atypicalLeap() {
+    void atypicalLeapYear() {
         assertTrue(isLeap(2000));
     }
 }

@@ -1,16 +1,16 @@
 #include "ApprovalTests.hpp"
-#include "catch.hpp"
+#include "catch2/catch.hpp"
 #include <ostream>
 #include "leap.h"
 
 using namespace ApprovalTests;
 
 TEST_CASE("Leap with List And Explanations") {
-    const auto &years = std::vector<std::tuple<std::string, int>>{
-        {"typical common year", 1993},
-        {"typical leap year", 1992},
-        {"atypical common year", 1900},
-        {"atypical leap year", 2000}
+    const auto years = std::vector<std::tuple<std::string, int>>{
+            {"typical common year", 1993},
+            {"typical leap year", 1992},
+            {"atypical common year", 1900},
+            {"atypical leap year", 2000}
     };
     auto result = std::vector<std::tuple<std::string, int, bool>>();
     for (auto data : years) {
@@ -20,7 +20,7 @@ TEST_CASE("Leap with List And Explanations") {
         result.push_back({explanation, year, isLeap(year)});
     }
     Approvals::verifyAll("explanation, year -> is leap year", result,
-                         [](auto input, auto& stream) {
+                         [](std::tuple<std::string, int, bool> input, std::ostream& stream) {
                              std::string explanation;
                              int year;
                              bool value;
